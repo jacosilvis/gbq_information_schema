@@ -1,4 +1,6 @@
 # get jobs taking longer than 30 min 
+# Replace region in from clause, example:region-us, region-asia-east2, region-europe-north1
+
 SELECT
  job_id,
  job_type,
