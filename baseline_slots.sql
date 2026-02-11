@@ -37,10 +37,9 @@ WITH minute_usage AS (
     creation_time >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 30 DAY)
     AND state = 'DONE'
     
-    -- TIME FILTER: Only include jobs between 08:00 and 17:30
+    -- TIME FILTER: Only include jobs between 08:00 and 18:00
     AND (
-      EXTRACT(HOUR FROM creation_time) BETWEEN 8 AND 16  -- Covers 08:00 to 16:59
-      OR (EXTRACT(HOUR FROM creation_time) = 17 AND EXTRACT(MINUTE FROM creation_time) <= 30) -- Covers 17:00 to 17:30
+      EXTRACT(HOUR FROM creation_time) BETWEEN 8 AND 18 
     )
   GROUP BY 1
 )
